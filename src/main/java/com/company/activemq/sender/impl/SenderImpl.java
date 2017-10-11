@@ -6,6 +6,14 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
 
+/**
+ * Class {@code SenderImpl} initialize send method.
+ *
+ * @author V.Mankivskiy
+ * @see com.company.activemq.reciever.app.Main
+ * @since 1.0.2
+ * @date 06.09.2017
+ */
 public class SenderImpl implements Sender{
 
     private ConnectionFactory factory = null;
