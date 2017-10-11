@@ -1,5 +1,8 @@
 package com.company.activemq.model;
 
+import java.util.Iterator;
+import java.util.List;
+
 /**
  * Class {@code BlackBox} is example for hashcode&equels.
  *
@@ -11,11 +14,13 @@ package com.company.activemq.model;
 public class BlackBox {
     private int varA;
     private int varB;
+    private List<Integer> integerList;
 
 
-    public BlackBox(int varA, int varB){
+    public BlackBox(int varA, int varB, List<Integer> integerList){
         this.varA = varA;
         this.varB = varB;
+        this.integerList = integerList;
     }
 
     @Override
@@ -27,6 +32,7 @@ public class BlackBox {
 
         if (varA !=blackBox.varA) return false;
         if (varB !=blackBox.varB) return false;
+        if (integerList !=blackBox.integerList) return false;
         return true;
     }
 
@@ -35,7 +41,12 @@ public class BlackBox {
     @Override
     public int hashCode(){
         int result = varA;
-        result = 31*result + varB;
+        Iterator i = integerList.iterator();
+        while (i.hasNext()) {
+            Object object = i.next();
+            result = 31 * result + varB + (object == null ? 0: object.hashCode());
+            System.out.println("result="+result);
+        }
         return result;
     }
 
