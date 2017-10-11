@@ -2,6 +2,8 @@ package com.company.activemq.reciever.app;
 
 import com.company.activemq.reciever.Receiver;
 import com.company.activemq.reciever.impl.ReceiverImpl;
+import com.company.activemq.sender.Sender;
+import com.company.activemq.sender.impl.SenderImpl;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
 import javax.jms.*;
@@ -19,12 +21,12 @@ public class Main {
 
 
         Receiver receiver = new ReceiverImpl();
-        //Sender sender = new Sender();
-        //sender.sendMessage("Hello!");
+        Sender sender = new SenderImpl();
+        sender.sendMessage("Hello!");
         //sender.sendMessage("How are you?");
         //sender.sendMessage("You will come?");
 
-        //reciever.receiveMessage();
+        receiver.receiveMessage();
 
 
 
